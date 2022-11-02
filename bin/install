@@ -1,0 +1,17 @@
+#! /bin/bash
+
+# stop on errors
+set -Eeuo pipefail
+
+set -x
+python3 -m venv env
+source env/bin/activate
+
+mkdir -p tmp
+export TMPDIR=tmp
+
+pip install -r requirements.txt
+pip install -e index_server
+pip install -e search_server
+
+pip install madoop

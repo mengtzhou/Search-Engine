@@ -1,0 +1,13 @@
+ * Serving Flask app 'search' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+ * Running on http://192.168.4.32:8000/ (Press CTRL+C to quit)
+127.0.0.1 - - [30/Sep/2022 16:07:06] "[33mGET /?q=hello+world&w=0.5 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [30/Sep/2022 16:07:27] "GET /search/ HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2022 16:07:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Sep/2022 16:07:31] "GET /search/?q=hello+world&w=0.5 HTTP/1.1" 200 -
+127.0.0.1 - - [30/Sep/2022 16:07:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -

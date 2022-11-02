@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ask Wiki</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div class="feed">
+            <div class="search_bar">
+                <form action="/search/" method="GET">
+                    <div class="ask485">askWiki</div>
+                    <div><input type="text" name="q" value="{{q}}"/></div>
+                    <div class="pagerank_weight">Pagerank Weight</div>
+                    <div><input type="range" name="w" min="0" max="1" step="0.01" value="{{w}}"/></div>
+                    <input type="submit" value="Search"/>
+                </form>
+            </div>
+            {% if num_hits == 0%}
+                <div class="no_results">No search results found!</div>
+            {% else %}
+                <div class="docs">
+                    {% for hit in hits %}
+                        {% if hit.url %}
+                            <a class="doc_title" href="{{hit.url}}">{{ hit.title }}</a>
+                        {% else %}
+                            <a class="doc_title">{{ hit.title }}</a>
+                        {% endif %}
+                        
+                        {% if not hit.summary %}
+                            <div class="doc_summary">No summary available</div>
+                        {% else %}
+                            <div class="doc_summary">{{ hit.summary }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </body>
+</html>
